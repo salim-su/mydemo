@@ -1,0 +1,171 @@
+/*
+* @Author: Marte
+* @Date:   2016-11-16 16:13:40
+* @Last Modified by:   Marte
+* @Last Modified time: 2016-12-02 21:47:18
+*/
+.bigbanner{
+    position: relative;
+}
+.bigbanner a{
+    position: absolute;
+    display: block;
+    height: 603px;
+    width: 100%;
+    background: url(../images/banner.jpg) top center no-repeat;
+}
+.main{
+    position: relative;
+/*     height: 800px;
+background-color: pink; */
+}
+.main .slider{
+    float: left;
+    position: relative;
+
+    margin-top: 12px;
+    margin-left: 220px;
+    width: 730px;
+    height: 453px;
+    background-color: #5A3DDE;
+}
+.main .news{
+    float: right;
+    margin-top: 12px;
+    width: 248px;
+    height: 452px;
+    border: 1px solid #E4E4E4;
+}
+.main ul.circle{
+    position: absolute;
+    bottom:10px;
+    left: 50%;
+    margin-left: -66px;
+}
+.main ul.circle .current{
+    background-color: #B61B1F;
+}
+.main ul.circle li{
+    float: left;
+    height: 18px;
+    width: 18px;
+    background-color: #3E3E3E;
+    margin: 0 2px;
+    line-height: 18px;
+    text-align: center;
+    color: white;
+    border-radius: 50%;
+}
+.arrow-l,.arrow-r{
+    position: absolute;
+    top: 50%;
+    margin-top: -31px;
+    width: 28px;
+    height: 62px;
+    text-align: center;
+    color: white;
+    background-color: rgba(0,0,0,.3);
+    font: 600 16px/62px "SimSun";
+}
+.arrow-l:hover,.arrow-r:hover{
+    background-color: rgba(0,0,0,.5);
+    color:white;
+}
+.arrow-l{
+    left: 0;
+}
+.arrow-r{
+    right: 0;
+}
+.news .jd-news{
+    width: 248px;
+    height: 200px;
+/*     background-color: pink; */
+    border-bottom: dashed 1px #E4E4E4;
+}
+.news .life{
+    width: 248px;
+    height: 250px;
+    overflow: hidden;
+/*     background-color: #6071BD; */
+}
+.jd-news .dt,.life .dt{
+    font: 14px/43px "Microsoft YaHei";
+    height: 43px;
+    width: 248px;
+    border-bottom: dotted 1px #E8E8E7;
+}
+.jd-news .dt h3,.life .dt h3{
+    float: left;
+    padding-left: 14px;
+}
+.jd-news .dt a{
+    display: block;
+    font: 14px/43px "SimSun";
+    float: right;
+    padding-right: 14px;
+}
+.jd-news .dd ul {
+    padding: 8px 0px 8px 15px;
+}
+.jd-news .dd ul li a{
+    font:12px/28px "Microsoft YaHei";
+}
+.jd-news .dd ul li a span{
+    font-weight: 700;
+    margin-right: 3px;
+}
+.life li{
+    float: left;
+    width: 62px;
+    height: 70px;
+    border-right: 1px solid #E4E4E4;
+    border-bottom: 1px solid #e4e4e4;
+}
+.life .dd{
+    overflow: hidden;
+
+}
+.life ul{
+    width: 255px;
+}
+.life .dd ul li{
+    position: relative;
+
+}
+.life .dd ul li i{
+    position: absolute;
+    top:12px;
+    left: 18px;
+    display: block;
+    width: 25px;
+    height: 27px;
+    background:  url(../images/icon_lifeserv.png) -25px 0 no-repeat;
+}
+.life .dd ul li a{
+    display: block;
+    text-align: center;
+    height: 70px;
+    padding-top: 44px;
+}
+.life .dd ul li a.song{
+    background:  url(../images/song.png) right top no-repeat;
+}
+.todays{
+    position: relative;
+    margin-top: 10px;
+    width: 1210px;
+}
+.todays .night-l{
+    float: left;
+}
+.todays .night-r{
+    width: 1000px;
+}
+.todays .night-r li{
+    float: left;
+    margin-left: 2px;
+}
+.todays .night-r ul{
+    width: 300%;
+}

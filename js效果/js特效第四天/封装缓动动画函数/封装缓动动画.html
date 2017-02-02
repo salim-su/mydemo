@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #demo {
+            position: absolute;
+            left: 0;
+            top: 25px;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var btn200 = document.getElementById("btn200");
+            var btn400 = document.getElementById("btn400");
+            var demo = document.getElementById("demo");
+            btn200.onclick = function () {
+                animate(demo,200);
+            }
+            btn400.onclick = function () {
+                animate(demo,400);
+            }
+
+            function animate(obj,target) {
+                obj.timer = setInterval(function () {
+                    var step = (target - obj.offsetLeft) / 10 ;
+                    step = step > 0? Math.ceil(step) : Math.floor(step);
+                    obj.style.left = obj.offsetLeft + step + "px";
+                    if (target == obj.offsetLeft) {
+                        clearInterval(obj.timer);
+                    }
+                },30)
+            }
+
+
+
+
+
+
+
+        }
+    </script>
+</head>
+<body>
+<button id="btn200">200</button>
+<button id="btn400">400</button>
+<div id="demo"></div>
+</body>
+</html>

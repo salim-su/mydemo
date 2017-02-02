@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-repeat</title>
+    <script src='angular.min.js'></script>
+</head>
+<body ng-app='myapp'>
+<div ng-controller='myCtrl'>
+    <h3 ng-repeat='(key,x) in arrVal1'>{{key}}{{x}}</h3>
+    <br>
+    <h2 ng-repeat='x in arrVal'>{{x.name}}</h2>
+
+    <!--<ul ng-repeat='item in items' ng-switch="item">-->
+        <!--<li ng-switch-when='css'>{{item}}</li>-->
+    <!--</ul>-->
+
+    <!--<ul>-->
+        <!--<li ng-repeat='item in items' ng-switch='item'>-->
+            <!--<span ng-switch-when='css'>{{item}}</span>-->
+        <!--</li>-->
+    <!--</ul>-->
+
+    <select ng-model = 'myVal'>
+        <option value="ng1">ng1</option>
+        <option value="ng2">ng2</option>
+        <option value="ng3">ng3</option>
+    </select>
+
+
+
+    <div ng-controller='myCtrl' ng-switch='myVal'>
+        <div ng-switch-when='ng1'>
+            <p>kaka1</p>
+        </div>
+        <div ng-switch-when='ng2'>
+            <p>kaka2</p>
+        </div>
+        <div ng-switch-when='ng3'>
+            <p>kaka3</p>
+        </div>
+        <div ng-switch-default>
+            <p>kaka4</p>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    var app = angular.module('myapp',[]);
+
+    app.controller('myCtrl',['$scope', function ($scope) {
+        $scope.arrVal1 = [
+            'kaka',
+            'ronadlo',
+            'messi'
+        ]
+
+
+        $scope.arrVal = [
+            {
+                "name" : "kaka",
+                "age" : "18"
+            },
+            {
+                "name" : "ronadlo",
+                "age" : "28"
+            },
+            {
+                "name" : "messi",
+                "age" : "38"
+            }
+        ]
+
+        $scope.items = ['html','css','js']
+    }])
+
+
+</script>
+</body>
+</html>

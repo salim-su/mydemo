@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.showAge = function () {
+        alert("我的年龄是" + this.age);
+    }
+    Person.prototype.showName = function () {
+        alert("我的名字是" + this.name);
+    }
+
+    var demo1 = new Person("kaka",22);
+    var demo2 = new Person("ronadlo",24);
+    alert(demo1.showAge);
+    demo1.showName();
+    demo1.showAge();
+    alert(demo1.showAge === demo2.showAge);
+</script>
+</body>
+</html>

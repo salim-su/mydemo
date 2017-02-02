@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style type="text/css" media="screen">
+        div{
+            background: red;
+        }
+    </style>
+    <script>
+        window.onload = function  () {
+            function $(id){ return document.getElementById(id);}
+            $("btn").onclick = function  () {
+                $("jiecheng").value =1;
+                for (var i = 1; i <= $("num").value; i++) {
+                    $("jiecheng").value = $("jiecheng").value * i;
+                }
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+    请输入一个数
+    <input type="text" name="" id="num">
+    <br>
+    <button id="btn">计算阶乘</button>
+    <br>
+    <input type="text" name="" id="jiecheng">
+</body>
+</html>

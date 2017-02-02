@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">按钮</button>
+<button id="btn1">按钮</button>
+<script>
+     var btn = document.getElementById("btn");
+     var btn1 = document.getElementById("btn1");
+     btn.onclick = demo(10);
+     btn1.onclick = demo(11);
+     function demo(i) {
+         return function () {
+             alert("点击了按钮"+i);
+         }
+     }
+//     等价于
+//    btn.onclick = function (i) {
+//        return function () {
+//            alert("点击了按钮"+i);
+//        }
+//    }(11);
+</script>
+</body>
+</html>

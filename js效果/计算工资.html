@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <script>
+        window.onload =function() {
+            function $(id){ return document.getElementById(id);}
+                $("btn").onclick = function  () {
+                    if ($("workage").value >= 5) {
+                            $("salary_gl").value = $("salary").value*1.2;
+                        }else if($("workage").value >= 2){
+                            $("salary_gl").value = $("salary").value*1.15;
+                        }else{
+                            $("salary_gl").value = $("salary").value*1.1;
+                        }
+                }
+        }
+
+    </script>
+</head>
+<body>
+    请输入工资
+    <input type="text" name="" id="salary">
+    <br>
+    请输入工龄
+    <input type="text" name="" id="workage">
+    <br>
+    <button id="btn">确认</button>
+    <br>
+    工龄工资
+    <input type="text" name="" id="salary_gl">
+</body>
+</html>

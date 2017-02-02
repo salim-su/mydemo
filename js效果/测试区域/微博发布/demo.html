@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>微博发布</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 600px;
+            height: auto;
+            border: 1px solid #ccc;
+            padding: 30px 10px;
+            margin: 100px auto;
+        }
+        #area {
+            width: 400px;
+        }
+        #box ul {
+            list-style-type: none;
+        }
+        #box ul li {
+            border-bottom: 1px dashed #008aff;
+            width: 400px;
+            margin-left: 80px;
+            line-height: 30px;
+        }
+        #box ul li a {
+            float: right;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function $(id){ return document.getElementById(id);}
+            var box = $("box");
+            var area = $("area");
+            var btn = $("btn");
+            var newul = document.createElement("ul");
+            var ullis = newul.children;
+
+            box.appendChild(newul);
+            btn.onclick = function () {
+                if (area.value == "") {
+                    alert("输入不能为空");
+                }
+                else{
+                    var li = document.createElement("li");
+                    if (ullis.length == 0) {
+                        newul.appendChild(li);
+                        li.innerHTML = area.value+"<a href='javascript:;'>删除</a>";
+                    }else{
+                        newul.insertBefore(li,ullis[0]);
+                        li.innerHTML = area.value+"<a href='javascript:;'>删除</a>";
+
+                    }
+                }
+                var aa = document.getElementsByTagName("a");
+//            var removeLis = removeLi.children;
+//            alert(removeLis.length)
+                for (var i = 0; i < aa.length; i++) {
+                    aa[i].onclick = function () {
+                        newul.removeChild(this.parentNode);
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        微博发布:
+        <textarea name="" id="area" cols="50" rows="15"></textarea>
+        <button id="btn">提交</button>
+        <!--<ul>-->
+            <!--<li>111<a href="javascript:;">删除</a></li>-->
+            <!--<li>222<a href="javascript:;">删除</a></li>-->
+            <!--<li>333<a href="javascript:;">删除</a></li>-->
+        <!--</ul>-->
+    </div>
+</body>
+</html>

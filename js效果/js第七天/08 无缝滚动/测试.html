@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>无缝运动</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            position: relative;
+            width: 600px;
+            height: 200px;
+            overflow: auto;
+            margin: 100px auto;
+        }
+        #box ul li {
+            list-style-type: none;
+            float: left;
+        }
+        #box ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 400%;
+        }
+        img{
+            vertical-align: top;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box = document.getElementById("box");
+            var ul = box.children[0];
+            var num = 0;
+            timer = setInterval(start,10);
+            function start() {
+                num--;
+                if (num <= -1200) {
+                    num = 0;
+                }else{
+                    num;
+                }
+                ul.style.left = num + "px";
+            }
+            box.onmouseover = function () {
+                clearInterval(timer);
+            }
+            box.onmouseout = function () {
+                timer = setInterval(start,10);
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li><img src="images/01.jpg" alt=""/></li>
+        <li><img src="images/02.jpg" alt=""/></li>
+        <li><img src="images/03.jpg" alt=""/></li>
+        <li><img src="images/04.jpg" alt=""/></li>
+        <li><img src="images/01.jpg" alt=""/></li>
+        <li><img src="images/02.jpg" alt=""/></li>
+    </ul>
+</div>
+</body>
+</html>

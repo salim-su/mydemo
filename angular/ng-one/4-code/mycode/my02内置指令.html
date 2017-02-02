@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng指令</title>
+    <style>
+        .red {
+            color: red;
+        }
+        .hh {
+            height: 5000px;
+        }
+    </style>
+</head>
+<body ng-app="App" ng-class='{ hh : true}'>
+
+<ul ng-controller='DemoController'> <!--绑定控制器-->
+    <li ng-bind="name"></li>   <!--绑定属性数据-->
+
+    <li>{{name}}</li>   <!--也是绑定样子不一样而已-->
+
+    <li ng-show="false">ng-show用来显示或隐藏内容，true显示,0是false</li><!--DOM中不消失-->
+
+    <li ng-show="1">ng-show用来显示或隐藏内容，true显示</li><!--DOM中不消失-->
+
+    <li ng-hide='0'>ng-hide隐藏</li> <!--DOM中不消失-->
+
+    <li ng-if='0' class="ng-if">ng-if用来控制元素是否存在</li> <!--DOM文档中消失-->
+
+    <img ng-src="{{path}}" alt="">  <!--增强文件路径-->
+
+    <li ng-class='{red : true}'>kaka</li>  <!--控制类名-->
+
+    <input type="text" ng-disabled='1'> <!--表单禁用，配合ng-model使用-->
+    <br>
+
+    <!--表单禁用all-->
+    点击这里禁用所有表单输入域:<input type="checkbox" ng-model="all"><br>
+    <br>
+
+    <input type="text" ng-disabled="all">
+    <input type="radio" ng-disabled="all">
+    <select ng-disabled="all">
+        <option>Female</option>
+        <option>Male</option>
+    </select>
+</ul>
+    <!--表单只读-->
+勾选复选框设置输入框为只读:
+    <input type="checkbox" ng-model="dall">
+    <br>
+    <input type="text" ng-readonly="dall">
+    <!--单选复选选中，true为选中，model为演示-->
+    <p>My cars:</p>
+    <input type="checkbox" ng-model="call"> Check all<br><br>
+    <input type="checkbox" ng-checked="call">Volvo<br>
+    <input type="checkbox" ng-checked="call">Ford<br>
+    <input type="checkbox" ng-checked="call">Mercedes
+    <p>点击 "Check all" 选择所有的车。</p>
+
+    <!--下拉框表单选中，true为选中,model为演示-->
+    点击复选框选择 BMW 选项:
+    <input type="checkbox" ng-model="mySel">
+
+    <p>我喜欢的车:</p>
+
+    <select>
+        <option>Volvo</option>
+        <option ng-selected="mySel">BMW</option>
+        <option>Ford</option>
+    </select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src='angular.min.js'></script>
+
+<script>
+    //模块
+    var App = angular.module('App',[]);
+    //控制器
+    App.controller('DemoController',['$scope', function ($scope) {
+
+        //模型 $scope
+        $scope.name = 'kaka';
+        $scope.path = '../images/author.jpg';
+    }]);
+</script>
+
+</body>
+</html>

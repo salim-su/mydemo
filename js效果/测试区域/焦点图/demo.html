@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="animate.js" type="text/javascript"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            vertical-align: top;
+        }
+        #demo {
+            width: 490px;
+            height: 170px;
+            margin: 100px auto;
+            border: 1px solid #ccc;
+            padding: 6px;
+        }
+        #demo #inner ul {
+            width: 800%;
+            height: 100%;
+            list-style-type: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #demo #inner ul li {
+            float: left;
+        }
+        #inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        #inner ol {
+            list-style-type: none;
+            position: absolute;
+            left: 50%;
+            margin-left: -70px;
+            bottom: 6px;
+        }
+        #inner ol li {
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-color: pink;
+            float: left;
+            line-height: 20px;
+            text-align: center;
+            margin-left: 8px;
+            cursor: pointer;
+        }
+        #inner ol li.current {
+            background-color: #89b3ff;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function $(id){ return document.getElementById(id);}
+            var demo = $("demo");
+            var inner = $("inner");
+            var ul = inner.children[0];
+            var ullis = ul.children;
+            var ol = document.createElement("ol");
+            inner.appendChild(ol);
+            for (var i = 0; i < ullis.length-1; i++) {
+                var olli = document.createElement("li");
+                ol.appendChild(olli);
+                ol.children[i].innerHTML = i+1;
+            }
+            var ollis = ol.children;
+            ollis[0].setAttribute("class","current");
+
+            for (var j = 0; j < ollis.length; j++) {
+                ollis[j].onmouseover = tab(j);
+                function tab(num) {
+                    return function () {
+                        for (var k = 0; k < ollis.length; k++) {
+                            ollis[k].className = "";
+                        }
+                        ollis[num].className = "current";
+//                        ullis[num]
+                        animate(ul,{left : -num*490});
+                        key = num;
+                        square=num;
+                    }
+                }
+            }
+//            开启定时器
+            var timer = null;
+            var key = 0;
+            var square = 0;
+            timer = setInterval(start,1000);
+            function start() {
+                key++;
+                if (key > ullis.length -1) {
+                    ul.style.left = 0;
+                    key = 1;
+                }
+                animate(ul,{left : -key*490});
+                square++;
+                for (var l = 0; l < ollis.length; l++) {
+                    ollis[l].className = "";
+                }
+                square%=5;
+                ollis[square].className = "current";
+            }
+            demo.onmouseover = function () {
+                clearInterval(timer);
+            }
+            demo.onmouseout = function () {
+                timer = setInterval(start,1000);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="demo">
+        <div id="inner">
+            <ul>
+                <li><img src="images/01.jpg" alt=""/></li>
+                <li><img src="images/02.jpg" alt=""/></li>
+                <li><img src="images/03.jpg" alt=""/></li>
+                <li><img src="images/04.jpg" alt=""/></li>
+                <li><img src="images/05.jpg" alt=""/></li>
+                <li><img src="images/01.jpg" alt=""/></li>
+            </ul>
+            <!--<ol>-->
+                <!--<li class="current">1</li>-->
+                <!--<li>2</li>-->
+                <!--<li>3</li>-->
+                <!--<li>4</li>-->
+                <!--<li>5</li>-->
+            <!--</ol>-->
+        </div>
+    </div>
+</body>
+</html>

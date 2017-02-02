@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src='angular.min.js'></script>
+</head>
+<body ng-app='App'>
+<!--<div tag></div>-->  <!--tag当做属性来使用-->
+<!--<tag></tag>&lt;!&ndash;tag当做元素来使用&ndash;&gt;-->
+<!--directive:tag当做注释使用replace必须为true-->
+<div class="tag"></div>
+<script>
+    var App = angular.module('App',[]);
+
+    App.directive('tag', function () { //directive创建自定义指令
+        return {
+            restrict : 'ECMA',  //标签，类名，注释，属性
+//            template : '<h1>hello ng</h1>',
+            template : 'list.html',
+            replace : true,//div 就没有啦，把tag放到list.html中的ul中
+        }
+    });
+</script>
+</body>
+</html>

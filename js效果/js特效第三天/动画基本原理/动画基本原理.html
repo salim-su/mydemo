@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #demo {
+            position: absolute;
+            left: 0;
+            top: 30px;
+            width: 80px;
+            height: 80px;
+            background-color: pink;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var btn = document.getElementById("btn");
+            var demo = document.getElementById("demo");
+            var timer = null;
+            btn.onclick = function () {
+                timer = setInterval(start,30);
+                function start() {
+                    if (demo.offsetLeft >= 400) {
+                        clearInterval(timer)
+                    }
+                    demo.style.left = demo.offsetLeft + 10 + "px";
+                    console.log(demo.style.left);
+                }
+                
+            }
+        }
+    </script>
+</head>
+<body>
+<button id="btn">动画按钮</button>
+<div id="demo"></div>
+</body>
+</html>

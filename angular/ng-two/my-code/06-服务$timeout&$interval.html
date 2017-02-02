@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$timeout&$interval</title>
+    <script src='./libs/angular.min.js'></script>
+</head>
+<body ng-app='demo'>
+
+<div ng-controller='myctrl'>
+    <h3>{{nowdate | date : 'yyyy年-M月-d日-EEEE-h时-m分-ss秒'}}</h3>
+
+    <h3>5秒后显示kaka  {{name}}</h3>
+
+    <button ng-click='stoptime()'>停止计时</button>
+</div>
+<script>
+    var demo = angular.module('demo', []);
+
+    demo.controller('myctrl', ['$scope','$timeout','$interval',function ($scope,$timeout,$interval) {
+//        $scope.nowdate = new Date();
+        var timer = $interval(function () {
+            $scope.nowdate = new Date();
+        },1000)
+
+        $timeout(function () {
+            $scope.name = "kaka"
+        },5000)
+
+        /*停止定时器*/
+        $scope.stoptime = function () {
+            $interval.cancel(timer);
+        }
+
+
+    }])
+
+
+
+</script>
+</body>
+</html>

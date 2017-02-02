@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn1">按钮1</button>
+<button id="btn2">按钮2</button>
+<button id="btn3">按钮3</button>
+<script>
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var btn3 = document.getElementById("btn3");
+    btn1.onclick = function () {
+        alert("kaka");
+    }
+    btn2.onclick = fn;
+    function fn() {
+        alert(fn);
+    }
+    btn3.onclick =fn1();
+    function fn1() {
+        return function () {
+            alert(fn1);
+        }
+    }
+</script>
+</body>
+</html>

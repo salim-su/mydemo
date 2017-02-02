@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function math(a,b) {
+        var obj = {};
+        obj.math1 = a+b;
+        obj.math2 = a-b;
+        obj.math3 = function (){
+            alert(a * b);
+        }
+        return obj;
+    }
+    var demo = math(10,20);
+    alert(demo.math1);
+//    alert(typeof demo);
+    alert(demo.math3());
+</script>
+</body>
+</html>

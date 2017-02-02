@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <script src='../libs/jquery-1.11.1.min.js'></script>
+    <style type="text/css" media="screen">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #demo {
+            width: 512px;
+            height: 400px;
+            background:  url(mi.png) 0 0 no-repeat;
+            margin: 100px auto;
+            position: relative;
+            border: 1px solid #ccc;
+        }
+        span {
+            position: absolute;
+            width: 100%;
+            height: 200px;
+        }
+        #up {
+            top: 0;
+            left: 0;
+        }
+        #down {
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            var num = 0;
+            var timer = null;
+            timer = setInterval(function () {
+                num += 3;
+//                console.log(num);
+                $("#demo").css('backgroundPositionY',-num+'px');
+                console.log(num);
+                if (num >= 1070) {
+//                    clearInterval(timer);
+                    num =0;
+                }
+            },50)
+        })
+    </script>
+</head>
+<body>
+    <div id="demo">
+        <span id="up"></span>
+        <span id="down"></span>
+    </div>
+</body>
+</html>

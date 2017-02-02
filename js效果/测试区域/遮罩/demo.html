@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="animate.js" type="text/javascript"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #mask {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background-color: rgba(0,0,0,0.3);
+            display: none;
+        }
+        #log_in {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left:-150px;
+            margin-top:-150px;
+            width: 300px;
+            height: 300px;
+            background-color: #fff;
+            display: none;
+        }
+        #log_in span {
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: block;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            /*display: none;*/
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">显示遮罩</button>
+    <div id="mask"></div>
+    <div id="log_in">
+        <span>关闭</span>
+    </div>
+    <script>
+        window.onload = function () {
+            function $(id){ return document.getElementById(id);}
+            var btn = $("btn");
+            var mask = $("mask");
+            var login = $("log_in");
+            var span = login.children[0];
+            btn.onclick = function () {
+                show(mask);
+                show(login);
+            }
+            span.onclick = function () {
+                hide(mask);
+                hide(login);
+            }
+            function show(obj) {
+                obj.style.display = "block";
+                animate(obj,{opacity : 100});
+            }
+
+            function hide(obj) {
+                obj.style.display = "none";
+                animate(obj,{opacity : 0});
+            }
+
+
+
+
+
+
+        }
+    </script>
+</body>
+</html>

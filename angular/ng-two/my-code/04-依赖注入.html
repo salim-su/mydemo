@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>依赖注入</title>
+    <script src='./libs/angular.min.js'></script>
+</head>
+<body ng-app='demo'>
+<div ng-controller='myctrl'>
+    <h1>{{name}}</h1>
+</div>
+
+
+<script>
+    var demo = angular.module('demo', []);
+
+    /*告诉NG我需要scope，通过回调函数一个形参传给你*/
+
+    /*↓ 行内式依赖注入*/
+    demo.controller('myctrl', ['$scope','$http', function (abc,bcd) {
+        abc.name = 'kaka';
+
+    }]);
+    /*↓ 推断依赖注入，一般不用,了解就可以了*/
+    demo.controller('democtrl', function ($scope,$http) {
+
+    });
+    
+
+</script>
+</body>
+</html>

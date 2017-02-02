@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            function $(id){ return document.getElementById(id);}
+            var btn1 = $("btn1");
+            var btn2 = $("btn2");
+            var btn3 = $("btn3");
+            var ipus = $("bottom").getElementsByTagName("input");
+
+            function check(flag) {
+                for (var i = 0; i < ipus.length; i++) {
+                    ipus[i].checked = flag;
+                }
+            }
+            btn1.onclick = function () {
+                check(true);
+            }
+            btn2.onclick = function () {
+                check(false);
+            }
+            btn3.onclick = function () {
+                for (var i = 0; i < ipus.length; i++) {
+                    if (ipus[i].checked == true) {
+                        ipus[i].checked = false;
+                    }else{
+                        ipus[i].checked = true;
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="top">
+        <button id="btn1">全选</button>
+        <button id="btn2">取消</button>
+        <button id="btn3">反选</button>
+    </div>
+    <div id="bottom">
+        <ul>
+            <li><input type="checkbox" id="aa">1</li>
+            <li><input type="checkbox">2</li>
+            <li><input type="checkbox">3</li>
+            <li><input type="checkbox">4</li>
+            <li><input type="checkbox">5</li>
+            <li><input type="checkbox">6</li>
+            <li><input type="checkbox">7</li>
+            <li><input type="checkbox">8</li>
+            <li><input type="checkbox">9</li>
+            <li><input type="checkbox">10</li>
+        </ul>
+    </div>
+</body>
+</html>

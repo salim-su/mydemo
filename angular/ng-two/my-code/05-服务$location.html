@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$location</title>
+    <script src='./libs/angular.min.js'></script>
+</head>
+<body ng-app='demo'>
+<dl ng-controller="myctrl">
+    <!--<dt>{{title}}</dt>-->
+    <dd>absUrl: {{absUrl}}</dd>
+    <dd>url: {{url}}</dd>
+    <dd>host: {{host}}</dd>
+    <dd>search: {{search}}</dd>
+    <dd>hash: {{hash}}</dd>
+    <dd>protocol: {{protocol}}</dd>
+    <dd>port: {{port}}</dd>
+</dl>
+
+
+<script>
+    var demo = angular.module('demo', []);
+
+    demo.controller('myctrl', ['$scope', '$location',function ($scope,$location) {
+        /*$location是ng提前封装好的，提供获取地址相关信息的服务*/
+        /*该实例使用了内建的 $location 服务获取当前页面的 URL。*/
+        $scope.absUrl = $location.absUrl();
+        /*截取地址上锚点以后的内容*/
+
+        $scope.url = $location.url();
+
+        $scope.host = $location.host();
+
+        $scope.search = $location.search();
+
+        $scope.hash = $location.hash();
+
+        $scope.protocol = $location.protocol();
+
+        $scope.port = $location.port();
+
+
+    }])
+
+
+</script>
+</body>
+</html>

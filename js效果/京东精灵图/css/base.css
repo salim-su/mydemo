@@ -1,0 +1,448 @@
+@charset "UTF-8";
+/*css 初始化 */
+/* body, html {
+    overflow-x: hidden;
+} */
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img { margin:0; padding:0; }
+fieldset, img,input,button { border:none; padding:0;margin:0;outline-style:none; }
+ul, ol { list-style:none; }
+input { padding-top:0; padding-bottom:0; font-family: "SimSun","宋体";}
+select, input { vertical-align:middle;}
+select, input, textarea { font-size:12px; margin:0; }
+textarea { resize:none; } /*防止拖动*/
+img {border:0;	vertical-align:middle; }  /*  去掉图片低测默认的3像素空白缝隙*/
+table { border-collapse:collapse; }
+body {
+    font:12px/150% Arial,Verdana,"\5b8b\4f53";
+    color:#666;
+    background:#fff;
+}
+.clearfix:before,.clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after{clear:both;}
+.clearfix{
+    *zoom:1;/*IE/7/6*/
+}
+a {color:#666; text-decoration:none; }
+a:hover{color:#C81623;}
+h1,h2,h3,h4,h5,h6 {text-decoration:none;font-weight:normal;font-size:100%;}
+s,i,em{font-style:normal;text-decoration:none;}
+.col-red{color: #C81623!important;}
+
+/*公共类*/
+.w {  /*版心 提取 */
+    width: 1210px;margin:0 auto;
+}
+.fl {
+    float:left
+}
+.fr {
+    float:right
+}
+.al {
+    text-align:left
+}
+.ac {
+    text-align:center
+}
+.ar {
+    text-align:right
+}
+.hide {
+    display:none
+}
+
+/*头部导航开始*/
+.header {
+    height: 30px;
+    line-height: 30px;
+    background-color: #f1f1f1;
+}
+.header .fr ul .fore,
+.header .fl .dt {
+    position: relative;
+    padding: 0px 20px 0px 10px;
+    /* background-color: pink; */
+
+}
+.header .fr ul li i,
+.header .fl .dt i
+{
+    position: absolute;
+    right: 4px;
+    top: 14px;
+    /* font可以继承 */
+    font: 400 14px/14px "宋体";
+    height: 7px;
+    width: 14px;
+    overflow: hidden;
+}
+.header .fr ul li s,
+.header .fl .dt s{
+    position: absolute;
+    top: -8px;
+}
+.header .fr li{
+    position: relative;
+
+    float: left;
+    padding: 0px 10px;
+}
+.header .fr li.line{
+    background-color: #DDDDDD;
+    width: 1px;
+    height: 12px;
+    margin-top:9px;
+    padding: 0;
+}
+.header .fr ul li.phone_jd{
+    padding:0px 20px 0px 25px;
+}
+.header .fr li .phone{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 15px;
+    height: 20px;
+    /* background-color: red; */
+    background:url(../images/sprite.png) 0 0 no-repeat;
+
+}
+/* 头部导航结束 */
+
+/* 搜索区域开始 */
+
+/* topbanner开始 */
+.topbanner{
+    background-color:#8A25C6;
+}
+.posr{
+    position: relative;
+
+}
+.closebanner{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    height: 19px;
+    width: 19px;
+    background:  url(../images/close.png) 0 0 no-repeat;
+}
+.closebanner:hover {
+    background:  url(../images/close.png) bottom no-repeat;
+}
+/* topbanner结束 */
+.logo {
+    position: relative;
+    float: left;
+    height: 100px;
+    width: 360px;
+    background-color: pink;
+    background:url(../images/logo.png) 0 25px no-repeat;
+}
+.logo .jd-logo {
+    display: block;
+    width: 270px;
+    height: 60px;
+    /* border: 1px solid red; */
+    position: absolute;
+    top: 25px;
+    text-indent: -1111em;
+}
+.logo .db11{
+    position: absolute;
+    top: 10px;
+    left: 168px;
+    width: 180px;
+    height: 80px;
+    background-color: pink;
+}
+/* logo区域结束 */
+
+/* 搜索区域 */
+.search {
+    float: left;
+    height: 36px;
+    width: 538px;
+    background-color: green;
+    margin-top: 25px;
+}
+.search input{
+    width: 450px;
+    height: 32px;
+    border: 2px solid #B61D1D;
+    font: 14px/32px "Microsoft YaHei";
+    padding-left: 4px;
+    float: left;
+    color: #666666;
+}
+.search button{
+    float: left;
+    width: 80px;
+    height: 36px;
+    background-color: #B61D1D;
+    font: 16px/36px "Microsoft YaHei";
+    color:white;
+    cursor: pointer;
+}
+/* 搜索区域结束 */
+/* 购物车 */
+.car{
+    float: right;
+    position: relative;
+    margin: 25px 65px 0 0;
+    height: 34px;
+    width: 96px;
+    padding-left: 43px;
+    border: 1px solid #DFDFDF;
+    font: 12px/34px "SimSun";
+}
+.car .icon1{
+    position: absolute;
+    top:10px;
+    left: 20px;
+    width: 16px;
+    height: 13px;
+    background:  url(../images/sprite.png) -1px -59px no-repeat;
+}
+.car .icon2{
+    position: absolute;
+    right: 11px;
+    top: 13px;
+    line-height: 9px;
+    color:#666666;
+
+}
+.car .icon3{
+    position: absolute;
+    top: -4px;
+    right: 20px;
+    width: 16px;
+    height: 14px;
+    background-color: #C81623;
+    border-radius: 50% 50% 50% 0;
+    line-height: 14px;
+    text-align: center;
+    color:white;
+}
+/* 购物车结束 */
+/* 热点区域 */
+.hotwords{
+    float: left;
+    padding: 7px 0;
+    width: 500px;
+}
+.hotwords a{
+    margin-right: 8px;
+}
+/* 热点区域结束 */
+
+/* nav部分  */
+/* 商品分类 */
+.nav{
+    height: 44px;
+    border-bottom: 2px solid #B1191A;
+}
+.nav .dropdown{
+    position: relative;
+    z-index:10;
+    float: left;
+    height: 44px;
+    width: 210px;
+    background-color: #B1191A;
+    overflow: visible;
+}
+.nav .dropdown .dt{
+    height: 44px;
+    background-color: #B1191A;
+}
+.nav .dropdown .dt a{
+    color: white;
+    font: 400 16px/44px "Microsoft YaHei";
+    padding-left: 10px;
+}
+.nav .dropdown .dd{
+    height: 465px;
+    background-color: #C81623;
+    margin-top: 2px;
+    border-left: 1px solid #B1191A;
+}
+.nav .dropdown .dd .items{
+    height: 31px;
+}
+.nav .dropdown .dd .items h3{
+    float: left;
+    color:white;
+    font:500 15px/31px "Microsoft YaHei";
+    padding-left: 10px;
+}
+.nav .dropdown .dd .items span{
+    float: right;
+    color:white;
+    font:700 14px/31px "SimSun";
+    padding-right: 15px;
+
+}
+/* 商品分类结束 */
+/* 热点搜索区域 */
+.nav .navitems{
+    float: left;
+    width: 680px;
+    height: 44px;
+}
+.nav .navitems ul li{
+    float: left;
+
+}
+.nav .navitems ul li a{
+    display: block;
+    font: 500 15px/44px "Microsoft YaHei";
+    padding: 0 20px;
+}
+.nav .navitems ul li.new{
+    background:  url(../images/new.jpg) right top no-repeat;
+}
+.nav .bike{
+    float: right;
+    width: 140px;
+    height: 44px;
+    background: url(../images/bike.jpg) 0 0 no-repeat;
+}
+.nav .bike a{
+    display: block;
+    height: 44px;
+    width: 140px;
+}
+
+/* 底部多快好省 */
+
+.footer .service .slogen {
+    position: relative;
+    height: 54px;
+    background-color: #F5F5F5;
+    padding: 20px 0;
+    margin-bottom: 15px;
+}
+.footer .service .slogen .item {
+    position: absolute;
+    left: 50%;
+    width: 304px;
+}
+.footer .service .slogen .slogen1{
+    margin-left: -608px;
+}
+.footer .service .slogen .slogen2{
+    margin-left: -304px;
+}
+.footer .service .slogen .slogen3{
+    margin-left: 0;
+}
+.footer .service .slogen .slogen4{
+    margin-left: 304px;
+}
+/* 底部多快好省结束 */
+
+/* 底部服务区域 */
+.footer .service .w dl{
+    width: 198px;
+    float: left;
+
+}
+.coverage .coverage_dt,
+.footer .service .w dt{
+    height: 28px;
+    font-size:16px;
+    font-family: "Microsoft YaHei";
+}
+.footer .service .w dd{
+    height: 20px;
+    font: 12px "SimSun";
+}
+.coverage {
+    float: right;
+    background:  url(../images/china.png) 0 -131px no-repeat;
+    width: 203px;
+    height: 169px;
+}
+.coverage_dd{
+    margin-top: 8px;
+}
+.coverage .coverage_dd .see_details{
+    margin-top: 10px;
+    text-align: right;
+
+}
+.shopping dt,
+.coverage{
+    padding-top: 10px;
+}
+.shopping{
+    border-bottom: 1px solid #E5E5E5;
+    padding-bottom: 20px;
+}
+/* 底部服务区域结束 */
+.againw{
+    text-align: center;
+
+}
+.againw .links{
+    margin-top: 24px;
+    height: 24px;
+}
+.againw .links a{
+    padding: 0px 6px;
+}
+.againw .message{
+    padding-top: 10px;
+}
+
+/* 遮罩效果对话框 */
+#mask {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+}
+#pop {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -150px;
+    width: 400px;
+    height: 300px;
+    background-color: #F3F1F1;
+}
+#pop span {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    height: 20px;
+    width: 20px;
+    background-color: #CBC7C7;
+    color: white;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+

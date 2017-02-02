@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+img {
+    vertical-align: top;
+}
+
+.wy-silder {
+    position: relative;
+    width: 310px;
+    height: 265px;
+    background-color: pink;
+    margin:100px auto;
+    overflow: hidden;
+}
+
+.silder {
+    width: 310px;
+    height: 220px;
+    background-color: #8694ff;
+
+
+}
+.silder-main {
+    width: 620px;
+    height: 220px;
+    background-color: pink;
+}
+.silder-main-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.silder-ctrl {
+    width: 310px;
+    height: 28px;
+    background-color: #50ffc1;
+    padding-top: 5px;
+    text-align: center;  
+}
+.silder-ctrl-con {
+    display: inline-block;
+    overflow: hidden;
+    width: 24px;
+    height: 15px;
+    background-color: #ff2256;
+    background:  url(../images/icon.png) -24px -785px no-repeat;
+    cursor: pointer;
+    text-indent: -30em;
+    margin: 0 5px;
+}
+.silder-ctrl .current {
+    background:  url(../images/icon.png) -24px -765px no-repeat;
+}
+.silder-ctrl-prev {
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    left: 5px;
+    width: 30px;
+    height: 35px;
+    background:  url(../images/icon.png) 0 0 no-repeat;
+    cursor: pointer;
+}
+.silder-ctrl-next {
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    right: 5px;
+    width: 30px;
+    height: 35px;
+    background:  url(../images/icon.png) 0 -45px no-repeat;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

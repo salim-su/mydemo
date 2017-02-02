@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Template • TodoMVC</title>
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" href="css/index.css">
+		<!-- CSS overrides - remove if you don't need it -->
+		<link rel="stylesheet" href="css/app.css">
+	</head>
+	<body ng-app='Todos'>
+		<section class="todoapp" ng-controller="myCtrl">
+			<header class="header">
+				<h1>todos</h1>
+				<form ng-submit='add()'>
+					<input ng-model='myVal' class="new-todo" placeholder="What needs to be done?" autofocus>
+				</form>
+			</header>
+			<section class="main">
+				<input class="toggle-all" type="checkbox">
+				<label for="toggle-all">Mark all as complete</label>
+				<ul class="todo-list">
+					<li ng-repeat='(key,todo) in todos'>
+						<div class="view">
+							<input class="toggle"  type="checkbox" ng-checked='todo.flag' ng-click='finish(key)'>
+							<label>{{todo.val}}</label>
+							<button class="destroy" ng-click='delete(todos,key)'></button>
+						</div>
+						<input class="edit" value="Create a TodoMVC template">
+					</li>
+					<li><h5>已完成</h5></li>
+					<li class="completed" ng-repeat='(key,myVal) in donetodos'>
+						<div class="view">
+							<input class="toggle" type="checkbox" ng-checked='myVal.flag'>
+							<label>{{myVal.val}}</label>
+							<button class="destroy" ng-click='donedelete(donetodos,key)'></button>
+						</div>
+						<input class="edit" value="Rule the web">
+					</li>
+				</ul>
+			</section>
+			<footer class="footer">
+				<span class="todo-count"><strong>{{todos.length}}</strong> item left</span>
+				<button class="clear-completed">Clear completed</button>
+			</footer>
+		</section>
+
+	</body>
+
+	<script src="../libs/angular.min.js"></script>
+	<script>
+		var Todos = angular.module('Todos',[])
+
+		Todos.controller('myCtrl',['$scope', function ($scope) {
+//			$scope.todos = [
+//				{val : "吃饭", flag : false},
+//                {val : "睡觉", flag : true},
+//                {val : "打豆豆", flag : false}
+//			]
+			/*待办事项声明一个空对象*/
+			$scope.todos = [];
+
+			$scope.add = function () {
+			    /*增加数据*/
+				$scope.todos.push({val : $scope.myVal,flag : false});
+				/*清空表单中的数据，下次继续输出*/
+				$scope.myVal = '';
+            }
+
+            /*完成事项声明一个空对象*/
+            $scope.donetodos = [];
+            
+            $scope.finish = function (num) {
+                var aa = $scope.todos.splice(num,1)[0];
+                aa.flag = true;
+//                console.log(aa);
+				$scope.donetodos.push(aa)
+//                console.log($scope.donetodos);
+            }
+
+            /*删除事项,要学会用传参的方式来写函数*/
+            /*$scope.delete = function (key) {
+                $scope.todos.splice(key,1);
+            }
+            $scope.donedelete = function (key) {
+                $scope.donetodos.splice(key,1);
+            }*/
+
+            $scope.
+        }])
+	</script>
+</html>

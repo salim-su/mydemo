@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #demo {
+            width: 500px;
+            height: 500px;
+            border: 1px solid gold;
+            margin: 100px auto;
+        }
+        #xiongda {
+            height: 100px;
+            width: 100%;
+            background-color: pink;
+        }
+        #xiongda1 {
+            height: 80px;
+            width: 100%;
+            background-color: blue;
+        }
+        .xionger {
+            width: 100%;
+            height: 60px;
+            background-color: yellowgreen;
+        }
+        .xionger1 {
+            width: 100%;
+            height: 40px;
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+<div id="demo">
+    <div id="xiongda"></div>
+    <div id="xiongda1"></div>
+
+</div>
+</body>
+<script>
+    var demo = document.getElementById("demo");
+    //    创建节点
+    var firstDiv = document.createElement("div");
+    firstDiv.className = "xionger";
+    //    添加节点在最后
+    demo.appendChild(firstDiv);
+    //    创建第二个节点
+    var secondDiv = document.createElement("div");
+    secondDiv.className = "xionger1";
+    //    插入节点有参数
+    demo.insertBefore(secondDiv,demo.children[1]);
+
+//    移除节点
+    var xiongda = document.getElementById("xiongda");
+    demo.removeChild(xiongda);
+
+//    克隆节点
+
+
+    demo.appendChild(secondDiv.cloneNode());
+    demo.appendChild(demo.children[1].cloneNode());
+
+    demo.parentNode.appendChild(demo.cloneNode(true));
+</script>
+
+</html>

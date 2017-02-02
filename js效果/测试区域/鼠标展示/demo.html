@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            vertical-align: top;
+        }
+        #box {
+            width: 360px;
+            /*height: 70px;*/
+            /*padding-top: 360px;*/
+            margin:100px auto;
+            border: 1px solid #4f6c76;
+            overflow: hidden;
+
+        }
+        #demo1 {
+            background:  url(images/01big.jpg) 0 0 no-repeat;
+            height: 360px;
+        }
+        #demo2 ul li {
+            float: left;
+            list-style-type: none;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function $(id){ return document.getElementById(id);}
+            var demo2 = $("demo2");
+            var demo1 = $("demo1")
+            var lis = demo2.children[0].children;
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].onmouseover = tab(i);
+            }
+            function tab(num) {
+                return function () {
+                    demo1.style.backgroundImage = "url(images/0"+(num+1)+"big.jpg)";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+    <div id="demo1">
+        
+    </div>
+    <div id="demo2">
+        <ul>
+            <li><img src="images/1.jpg" alt=""></li>
+            <li><img src="images/2.jpg" alt=""></li>
+            <li><img src="images/3.jpg" alt=""></li>
+            <li><img src="images/4.jpg" alt=""></li>
+            <li><img src="images/5.jpg" alt=""></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        form{
+            width: 100%;
+            /* 最大宽度*/
+            max-width: 640px;
+            /* 最小宽度*/
+            min-width: 320px;
+            margin:0 auto;
+            font-family: "Microsoft Yahei";
+            font-size: 20px;
+        }
+
+        input{
+            display: block;
+            width: 100%;
+            height:30px;
+            margin:10px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- type：表单的类型-->
+    <!--<input type="file" />-->
+    <form action="">
+        <fieldset><!--表单分组-->
+            <legend>表单属性</legend><!--为表单元素定义标题-->
+
+            <label for="">
+                email: <input type="email" name="email" id=""/>
+            </label>
+
+            <label for="">
+                url: <input type="url" name="url" />
+            </label>
+            <!--step设置number每次增加多少-->
+            <label for="">
+                number: <input type="number" name="number" step="3" />
+            </label>
+
+            <label for="">
+                tel: <input type="tel" name="tel" />
+            </label>
+
+            <label for="">
+                search: <input type="search" name="search" />
+            </label>
+            <!--value 0~100设置滑动条的位置 ， 还可以手动设置，min= 0 max=“300” 所以value=100滑动条在3分之1的位置-->
+            <label for="">
+                range: <input type="range" name="range" value="100" min="0" max="300"/>
+            </label>
+            <!--value设置颜色,拾色器-->
+            <label for="">
+            color: <input type="color" name="color"  value='#89DFA2'/>
+            </label>
+
+            <label for="">
+                time: <input type="time" name="time" />
+            </label>
+
+            <label for="">
+                date: <input type="date" name="date" />
+            </label>
+
+            <label for="">
+                month: <input type="month" name="month" />
+            </label>
+
+            <label for="">
+                week: <input type="week" name="week" />
+            </label>
+
+
+
+
+            <input type="submit" value="提交"/>
+        </fieldset>
+    </form>
+</body>
+</html>

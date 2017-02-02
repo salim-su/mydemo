@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            position: relative;
+            left: 0;
+            top: 0;
+            height: 60px;
+            width: 600px;
+            border: 1px solid pink;
+            margin: 100px auto;
+        }
+        #scrollBar {
+            position: absolute;
+            left: 60px;
+            top: 24px;
+            height: 10px;
+            width: 400px;
+            background-color: #ccc;
+        }
+        #bar {
+            position: absolute;
+            left: 0;
+            top: -10px;
+            height: 30px;
+            width: 10px;
+            background-color: #4f6c76;
+            cursor: pointer;
+        }
+        #mask{
+            position: absolute;
+            left: 0;
+            width: 0;
+            /*width: 100%;*/
+            height: 100%;
+            background-color: #33c5ff;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var sBar = document.getElementById("scrollBar");
+            var bar = document.getElementById("bar");
+            var mask = document.getElementById("mask");
+            bar.onmousedown = function (event) {
+//                alert(sBar.offsetLeft);
+                window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+                var event = event || window.event;
+                var leftval = event.clientX - this.offsetLeft;
+                var _this = this;
+                document.onmousemove = function (event) {
+                    var event = event || window.event;
+                    _this.style.left = event.clientX - leftval +"px";
+                    var val = parseInt(_this.style.left);
+                    if (val < 0) {
+                        _this.style.left = 0;
+                    }else if(val > 390){
+                        _this.style.left = 390+"px";
+                    }
+                    mask.style.width = _this.style.left;
+                    window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+                }
+            }
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+    <div id="scrollBar">
+        <div id="mask"></div>
+        <div id="bar">
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

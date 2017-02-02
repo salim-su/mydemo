@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>服务$filter</title>
+    <script src='./libs/angular.min.js'></script>
+</head>
+<body ng-app='demo'>
+<ul ng-controller='myctrl'>
+    <li>{{price}}</li>
+    <li>{{name}}</li>
+</ul>
+
+<script>
+    var demo = angular.module('demo', []);
+
+    demo.controller('myctrl', ['$scope','$filter', function ($scope,$filter) {
+
+        /*$fliter可以是九种内置过滤器任意一个,可以不再视图里实现过滤服务*/
+        $scope.price = 11;
+        /*想要用什么过滤就传什么参数*/
+        var currency = $filter("currency");
+//
+        $scope.price = currency($scope.price);
+
+//        $scope.price = $filter($scope.price);
+
+//        $scope.name = 'kaka';
+
+        $scope.name = $filter("uppercase")('kaka');
+
+
+    }])
+
+
+
+</script>
+</body>
+</html>

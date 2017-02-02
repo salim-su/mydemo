@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="text"/>
+<button id="btn">点击发送验证码</button>
+</body>
+<script>
+    window.onload = function () {
+        var btn = document.getElementById("btn");
+        btn.onclick = function () {
+            this.disabled = true;
+            var _this = this;
+            var count = 5 ;
+            var timer = setInterval(timeRemaining,1000);
+            function timeRemaining() {
+                count--;
+                if(count >= 0){
+                    _this.innerHTML = "还剩余"+count+"秒";
+                    return;
+                }
+                {
+                    clearInterval(timer);
+                    _this.innerHTML = "点击重新发送";
+                    _this.disabled  = false;
+                }
+            }
+        }
+        
+    }
+</script>
+</html>

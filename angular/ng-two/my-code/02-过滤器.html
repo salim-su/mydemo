@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过滤器</title>
+    <script src='./libs/angular.min.js'></script>
+</head>
+<body ng-app='demo'>
+<div ng-controller='myctrl'>
+    数量：<input type="number" ng-model='num'>
+    <br>
+    单价：<input type="number" ng-model='price'>
+    <!--currency-->
+    <h5>总价:{{num*price | currency:'￥'}}</h5>
+    <!--date-->
+    <h5>currency: {{now | date : 'yyyy年-M月-d日-EEEE-h时-m分-ss秒-sss毫秒'}}</h5>
+    <!--filter-->
+    <div ng-repeat=' x in stars | filter : {age:18}'>
+        <h5>filter: {{x.names}}</h5>
+        <h5>filter: {{x}}</h5>
+    </div>
+    <!--json-->
+    <h5>json: {{stars | json}}</h5>
+    <!--limitTo-->
+    <h5>limitTo: {{stars | limitTo : 2}}</h5> <!--可以是负数-->
+    <!--lowercase-->
+    <h5>lowercase: {{name | lowercase | limitTo : 2}}</h5>
+    <!--uppercase-->
+    <h5>uppercase: {{name | uppercase}}</h5>
+    <!--number-->
+    <h5>number: {{num|number:2}}</h5><!--不能当成parseint使用，参数2保留几位小数-->
+    <!--orderby-->
+    <ul ng-repeat="x in stars | orderBy : 'names' : true"><!--true控制显示的方向-->
+        <li>{{x.names}}</li>
+    </ul>
+
+    <h5>{{stars | orderBy : 'age' : true}}</h5><!--数组对象也可以排序，第一个参数是控制参数，第二个是方向-->
+</div>
+
+
+<script>
+    var demo = angular.module('demo', []);
+
+    demo.controller('myctrl', ['$scope', function ($scope) {
+
+//        $scope.price = 11;
+
+//        $scope.now = new Date();
+
+
+            $scope.now = new Date();
+
+            $scope.stars = [
+                {names : "kaka",age : 18},
+                {names : "ronadlo",age : 28},
+                {names : "messi",age : 38}
+            ]
+            $scope.name = 'KaKa';
+
+            $scope.num = 23.45678;
+    }])
+
+
+
+</script>
+</body>
+</html>

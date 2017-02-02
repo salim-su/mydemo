@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单向数据绑定</title>
+    <script src='angular.min.js'></script>
+</head>
+<body ng-app='App'>
+<ul ng-controller='DemoController'>
+    <li ng-bind='name'></li>  <!--双括号黑强大  可以写多个属性  但是会闪烁 方法是有的 ng-clock-->
+    <li ng-cloak>{{age}}{{name}}</li>
+    <!--<li ng-bind-template="{{age}} {{name}}"></li>&lt;!&ndash;跟上边一样不用&ndash;&gt;-->
+
+
+</ul>
+
+
+
+
+<script>
+
+
+    var App = angular.module('App',[]);
+
+    App.controller('DemoController',['$scope', function ($scope) {
+        $scope.name = '球星 kaka';
+        $scope.age = '年龄 28岁'
+
+    }]);
+</script>
+</body>
+</html>

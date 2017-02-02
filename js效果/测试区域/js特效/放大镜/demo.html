@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <script src="animate.js" type="text/javascript"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            vertical-align: top;
+        }
+        #demo {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            border: 1px solid #ccc;
+            margin:80px 0px 0px 80px;
+            /*padding: 4px;*/
+        }
+        #smbox {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #bigbox {
+            position: absolute;
+            left: 360px;
+            top: 0;
+            width: 450px;
+            height: 450px;
+            overflow: hidden;
+            border: 1px solid #cccccc;
+        }
+        #mask {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(194,138,138,0.3);
+            cursor: move;
+            display: none;
+        }
+        #bigbox img {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function $(id){ return document.getElementById(id);}
+            var mask = $("mask");
+            var smbox = $("smbox");
+            var demo = $("demo");
+            var bigbox = $("bigbox");
+            var bigboxImg = bigbox.children[0];
+            smbox.onmousemove = function (event) {
+                mask.style.display = "block";
+                var event = event || window.event;
+                var xs = event.clientX - demo.offsetLeft - mask.offsetWidth / 2;
+                var ys = event.clientY - demo.offsetTop - mask.offsetHeight / 2;
+                if (xs < 0) {
+                    xs = 0;
+                }else if (xs > smbox.offsetWidth - mask.offsetWidth) {
+                    xs = smbox.offsetWidth - mask.offsetWidth;
+                }
+                if (ys < 0) {
+                    ys = 0;
+                }else if (ys > smbox.offsetHeight -mask.offsetHeight) {
+                    ys = smbox.offsetHeight -mask.offsetHeight;
+                }
+                console.log(ys);;
+                mask.style.left = xs + "px";
+                mask.style.top = ys + "px";
+                bigboxImg.style.left = -bigbox.offsetWidth*xs/smbox.offsetWidth + "px";
+                bigboxImg.style.top = -bigbox.offsetHeight*ys/smbox.offsetHeight + "px";
+            }
+            smbox.onmouseout = function () {
+                mask.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="demo">
+    <div id="smbox">
+        <img src="images/small.jpg" alt="">
+        <div id="mask"></div>
+    </div>
+    <div id="bigbox">
+        <img src="images/big.jpg" alt="">
+    </div>
+</div>
+</body>
+</html>

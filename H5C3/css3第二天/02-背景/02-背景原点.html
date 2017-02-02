@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 600px;
+            height: 600px;
+            border: 35px solid rgba(0,0,255,0.3);
+            padding: 35px;
+
+            background-image: url(images/baby0.jpg);
+            background-repeat: no-repeat;
+
+            /* background-origin: 用于设置背景图片从什么地开始平铺*/
+            /*内边距外开始平铺*/
+            /*background-origin: padding-box;*/
+            /*内容区域外开始平铺*/
+            /*background-origin: content-box;*/
+            /*边框外开始平铺*/
+            background-origin: border-box;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

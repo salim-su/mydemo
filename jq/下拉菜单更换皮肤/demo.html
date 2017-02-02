@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../libs/jquery-1.11.1.min.js"></script>
+
+    <style>
+        body {
+            background:  url(images/1.jpg) 0 0 ;
+        }
+    </style>
+    <script>
+        $(function () {
+            $('#sele').on('change', function () {
+                console.log($(this).val());
+                switch ($(this).val()) {
+                    case "1":
+                        $('body').css(
+                            {
+                                'background':'url(images/1.jpg)',
+                                'background-size' : 'cover'
+                            }
+                        )
+                        break;
+                    case "2":
+                        $('body').css(
+                            {
+                                'background':'url(images/2.jpg)',
+                                'background-size' : 'cover'
+                            }
+                        )
+                        break;
+                    case "3":
+                        $('body').css(
+                            {
+                                'background':'url(images/3.jpg)',
+                                'background-size' : 'cover'
+                            }
+                        )
+                        break;
+                    case "4":
+                        $('body').css(
+                            {
+                                'background':'url(images/4.jpg)',
+                                'background-size' : 'cover'
+                            }
+                        )
+                        break;
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+<select name="" id="sele">
+    <option value="1">1号背景</option>
+    <option value="2">2号背景</option>
+    <option value="3">3号背景</option>
+    <option value="4">4号背景</option>
+</select>
+</body>
+</html>

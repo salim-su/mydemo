@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function () {
+            var demo = document.getElementById("demo");
+            var endTime = new Date("2017/1/1");
+            setInterval(getime,1000);
+            function getime() {
+                var nowTime = new Date();
+                var s1 = parseInt((endTime.getTime() - nowTime.getTime()) / 1000);
+                var d = parseInt(s1 / 3600 / 24) ;
+                var h = parseInt(s1 / 3600 % 24) ;
+                var m = parseInt(s1 / 60 % 60) ;
+                var s = s1 % 60 ;
+                s<10 ? s= "0"+s :s;
+                demo.innerHTML = "还剩下 "+d+"天 "+h+"小时"+m+"分"+s+"秒";
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="demo"></div>
+</body>
+</html>

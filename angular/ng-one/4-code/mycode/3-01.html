@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS 指令</title>
+	<script src="angular.min.js"></script>
+
+	<!-- <link rel="stylesheet" ng-href="{{link}}"> -->
+
+</head>
+<body ng-app="App">
+	
+	<ul ng-controller="DemoController">
+		<li ng-bind="name"></li>
+
+	</ul>
+	
+	<script>
+		
+		// 创建模块
+		var App = angular.module('App', []);
+
+		App.controller('DemoController', ['$scope', function ($scope) {
+
+			// $scope
+
+			$scope.name = 'itcast';
+
+
+
+		}]);
+
+	</script>
+</body>
+</html>

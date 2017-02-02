@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            padding: 5px;
+            margin: 80px;
+            border: 1px solid #ccc;
+        }
+        #box01 {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border: 1px solid coral;
+        }
+        #box001 {
+            display: none;
+            position: absolute;
+            left: 368px;
+            top: 0;
+            width: 450px;
+            height: 450px;
+            border: 1px solid #000000;
+            overflow: hidden;
+            /*background:  url(images/big.jpg) 0 0 no-repeat;*/
+        }
+        #boxMove {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80px;
+            height: 80px;
+            background-color: rgba(192,255,200,0.6);
+        }
+        #box001Img {
+            position:absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box = document.getElementById("box");
+            var box01 = document.getElementById("box01");
+            var box001 = document.getElementById("box001")
+            var move = document.getElementById("boxMove");
+            var box001Img = box001.children[0];
+            box01.onmouseover = function () {
+                move.style.display = "block";
+                box001.style.display = "block";
+            }
+            box01.onmouseout = function () {
+                move.style.display = "none";
+                box001.style.display = "none";
+            }
+            var x = 0;
+            var y = 0;
+            box01.onmousemove = function (event) {
+                var event = event || window.event;
+//                alert(box01.offsetLeft)
+//                alert(event.clientX);
+                x = event.clientX - box.offsetLeft - box01.offsetLeft - move.offsetWidth/2;  // 再某个盒子内的坐标
+                //alert(this.offsetLeft);
+                y = event.clientY - box.offsetTop - box01.offsetTop - move.offsetHeight/2;
+                if (x < 0) {
+                    x = 0;
+                }else if (x > box01.offsetWidth - move.offsetWidth) {
+                    x = box01.offsetWidth - move.offsetWidth;
+                }
+
+                if (y < 0) {
+                    y =0 ;
+                }else if (y > box01.offsetHeight - move.offsetHeight) {
+                    y = box01.offsetHeight - move.offsetHeight;
+                }
+                move.style.left = x + "px";
+                move.style.top = y + "px";
+
+
+                box001Img.style.left = -x * box01.offsetWidth / box001.offsetWidth +"px";
+                box001Img.style.top = -y * box01.offsetHeight / box001.offsetHeight +"px" ;
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+    <div id="box01">
+        <img src="images/small.jpg" alt=""/>
+        <div id="boxMove">
+        </div>
+    </div>
+    <div id="box001">
+        <img id="box001Img" src="images/big.jpg" alt=""/>
+    </div>
+
+</div>
+</body>
+</html>

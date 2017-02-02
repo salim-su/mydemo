@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>检测字符串长度</title>
+    <script>
+        var txt ="Real Madrid 皇家马德里";
+        var len = 0;
+        function getStrlenth(str) {
+            for (var i = 0; i < str.length; i++) {
+                if(str.charCodeAt(i) > 0 && str.charCodeAt(i)<=127){
+                    len++;
+                }
+                else{
+                    len+=2;
+                }
+            }
+            return len;
+        }
+        console.log(getStrlenth(txt));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

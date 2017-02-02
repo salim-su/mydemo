@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box {
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            height: 450px;
+            width: 300px;
+            border: 1px solid #036663;
+            overflow: hidden;
+        }
+        #content {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: auto;
+            padding: 5px 14px 5px 5px;
+
+        }
+        #scroll {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 14px;
+            background-color: #c2c2c2;
+        }
+        #bar {
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #ff8d8b;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function $(id){ return document.getElementById(id);}
+            var content = $("content");
+            var scroll = $("scroll");
+            var bar = $("bar");
+//            判断滑块的高度
+            if (scroll.offsetHeight >= content.offsetHeight) {
+                bar.style.display = "none";
+                scroll.style.display = "none";
+            }else{
+                bar.style.height = scroll.offsetHeight * scroll.offsetHeight / content.offsetHeight + "px";
+            }
+            bar.onmousedown = function (event) {
+                var event = event || window.event;
+                var _this = this;
+                var yy =event.clientY - this.offsetTop;
+                document.onmousemove = function (event) {
+                    var event = event || window.event;
+                    var topVal =  event.clientY - yy;
+                    if (topVal < 0) {
+                        topVal = 0;
+                    }else if(topVal > scroll.offsetHeight - _this.offsetHeight){
+                        topVal = scroll.offsetHeight - _this.offsetHeight;
+                    }else{
+                        var contentCha = content.offsetHeight - scroll.offsetHeight;
+                        var barCha = scroll.offsetHeight - bar.offsetHeight;
+                        content.style.top = -topVal * contentCha / barCha + "px";
+                    }
+                    _this.style.top = topVal + "px";
+
+                    window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();   // 防止拖动滑块的时候， 选中文字
+
+                }
+            }
+            document.onmouseup = function () {
+                document.onmousemove = null;
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+    <div id="content">
+        皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里皇家马德里里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家里皇家马德里皇家马德里皇家马德里皇家
+
+    </div>
+    <div id="scroll">
+        <div id="bar"></div>
+    </div>
+</div>
+</body>
+</html>

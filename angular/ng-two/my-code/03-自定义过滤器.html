@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义过滤器</title>
+    <script src='./libs/angular.min.js'></script>
+</head>
+<body ng-app='demo'>
+<div ng-controller='myctrl'>
+    <h3>{{name | filt}}</h3>
+
+    <h4>{{name | titleCase :3}}</h4>
+</div>
+
+
+<script>
+    var demo = angular.module('demo', []);
+
+
+    /*自定义控制器*/
+    demo.controller('myctrl', ['$scope', function ($scope) {
+        $scope.name = 'ronadlo';
+    }])
+    /*自定义指令*/
+    demo.directive('name', function () {
+
+    });
+
+    /*自定义过滤器*/
+
+    demo.filter('filt', function () {
+        return function (value) {
+//            console.log(value + 'ronadlo');
+
+            return value + "-kaka";
+        }
+    })
+    /*自定义过滤器，作用让首字母大写，参数为取几个首字母大写*/
+    demo.filter('titleCase', function () {
+        return function (value,key) {
+            /*首字母大写*/
+//            return value[key].toUpperCase()+value.slice(key+1);
+            /*自己写的，参数可以定义取第几位字母大写*/
+            return value.substr(0,key).toUpperCase()+value.slice(key);
+        }
+    })
+
+</script>
+</body>
+</html>

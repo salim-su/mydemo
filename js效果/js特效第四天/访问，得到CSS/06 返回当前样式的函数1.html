@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 200px;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            background-color: pink;
+            z-index: 2;
+            opacity:  0.4;
+        }
+    </style>
+</head>
+<body>
+<div id="demo"></div>
+</body>
+</html>
+<script>
+    window.onload = function () {
+        var demo = document.getElementById("demo");
+        console.log(getStyle(demo,"height"));
+
+        function getStyle(obj, attr) {
+            if (obj.currentStyle) {
+                return obj.currentStyle[attr];
+            }{
+                return window.getComputedStyle(obj,null)[attr];
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+    
+</script>

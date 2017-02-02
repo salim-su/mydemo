@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src='../libs/jquery-1.11.1.min.js'></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .clearfix:before,.clearfix:after {
+            content:"";
+            display:table;
+        }
+        .clearfix:after{clear:both;}
+        .clearfix{
+            *zoom:1;/*IE/7/6*/
+        }
+        .box {
+            width: 348px;
+            height: 246px;
+            border: 1px solid #cccccc;
+            margin: 100px auto;
+        }
+        .txt {
+            color: #5A3DDE;
+            font-weight: 700;
+            font-size: 18px;
+            padding-top: 10px;
+            padding-left: 20px;
+        }
+        .icon {
+            float: left;
+            width: 50px;
+            height: 50px;
+            background:  url(images/astroIcon.png) left top no-repeat;
+        }
+        .right {
+            float: left;
+        }
+        .mt {
+            margin-top: 15px;
+        }
+        .icon {
+            margin-right: 20px;
+            margin-left: 15px;
+        }
+        .ysx {
+            /*position: relative;*/
+            margin-top: 4px;
+        }
+        .ysx .star1 {
+            /*position: absolute;*/
+            display: inline-block;
+            width: 80px;
+            height: 13px;
+            background:  url(images/yunshi.png) left top no-repeat;
+        }
+        .ysx .star2 {
+            display: block;
+            width: 80px;
+            height: 13px;
+            background: url(images/yunshi.png) left bottom no-repeat;
+        }
+        .mb {
+            padding-top: 30px;
+            padding: 30px 25px 20px 25px;
+        }
+        .mb span {
+            display: block;
+            text-indent:2em;
+            color: #666666;
+        }
+        .mb a {
+            float: right;
+            text-decoration: none;
+            color: #4396ff;
+        }
+    </style>
+    <!--<script>-->
+        <!--window.onload = function () {-->
+            <!--var arrstar = [10,9,8,7,6,5,4,3,2,1,2,3];-->
+            <!--var arrcontent = [-->
+                <!--"白羊座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",-->
+                <!--"金牛座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",-->
+                <!--"双子座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",-->
+                <!--"巨蟹座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",-->
+                <!--"狮子座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",-->
+                <!--"处女座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",-->
+                <!--"天秤座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",-->
+                <!--"天蝎座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",-->
+                <!--"射手座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",-->
+                <!--"摩羯座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",-->
+                <!--"水平座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",-->
+                <!--"双鱼座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",-->
+            <!--]-->
+            <!--function $(id){ return document.getElementById(id);}-->
+            <!--$("sel").onchange = function () {-->
+                <!--$("ico").style.backgroundPositionY = ""+this.value*(-50)+"px";-->
+                <!--$("star").style.width = arrstar[this.value]*8+"px";-->
+                <!--$("content").innerHTML = arrcontent[this.value];-->
+            <!--}-->
+        <!--}-->
+        <!---->
+    <!--</script>-->
+    <script>
+        $(function () {
+            var arrstar = [10,9,8,7,6,5,4,3,2,1,2,3];
+            var arrcontent = [
+                "白羊座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",
+                "金牛座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",
+                "双子座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",
+                "巨蟹座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",
+                "狮子座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",
+                "处女座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",
+                "天秤座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",
+                "天蝎座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",
+                "射手座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",
+                "摩羯座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",
+                "水平座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",
+                "双鱼座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...",
+            ]
+
+
+            $('#sel').on('change', function () {
+//                console.log($(this).val());
+                $('#star').css('width',arrstar[$(this).val()]*8);
+                $('#content').html(arrcontent[$(this).val()]);
+                $('#ico').css('backgroundPositionY',-$(this).val()*50)
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div class="txt">星座运势</div>
+        <div class="mt clearfix">
+            <div class="icon" id="ico"></div>
+            <div class="right">
+                <select name="" id="sel">
+                    <option value="0">白羊座3.21-4.19</option>
+                    <option value="1">金牛座4.20-5.20</option>
+                    <option value="2">双子座5.21-6.21</option>
+                    <option value="3">巨蟹座6.22-7.22</option>
+                    <option value="4">狮子座7.23-8.22</option>
+                    <option value="5">处女座8.23-9.22</option>
+                    <option value="6">天秤座9.23-10.23</option>
+                    <option value="7">天蝎座10.24-11.22</option>
+                    <option value="8">射手座11.23-12.21</option>
+                    <option value="9">摩羯座12.22-1.19</option>
+                    <option value="10">水瓶座1.20-2.18</option>
+                    <option value="11">双鱼座2.19-3.20</option>
+                </select>
+                <div class="ysx">
+                    <div>
+                        今日运势:
+                        <span class="star1">
+                            <span class="star2" id="star"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mb">
+            <span id="content">白羊座今天的你意志力强大，虽然偶尔也会有冲动的时候，但是大多数你想完成的事，此时你都可以坚持到...
+
+            </span>
+            <a href="javascript:;">[详细]</a>
+        </div>
+    </div>
+</body>
+</html>

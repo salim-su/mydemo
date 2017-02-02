@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="animate.js" type="text/javascript"></script>
+    <script src='../libs/jquery-1.11.1.min.js'></script>
+    <style>
+        #demo {
+            width: 100px;
+            height: 100px;
+            background-color: darkred;
+            /*opacity: 1;*/
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <div id="demo"></div>
+    <script>
+        $(function () {
+            $('#btn').on('click', function () {
+                $('#demo').animate({
+                    opacity : 0,
+                    width : 400,
+                    height : 400
+                })
+            })
+        })
+    </script>
+</body>
+</html>

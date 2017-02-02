@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻滚动</title>
+    <script src='../libs/jquery-1.11.1.min.js'></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div {
+            position: relative;
+            width: 300px;
+            height: 20px;
+            border:1px solid crimson;
+            margin:100px auto;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        ul{
+            position: absolute;
+            left: 0;
+            top: 0;
+            list-style-type: none;
+        }
+        li{
+            height: 20px;
+            line-height: 20px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <ul>
+        <li>11111111111111111111111111</li>
+        <li>22222222222222222222222222</li>
+        <li>33333333333333333333333333</li>
+        <li>44444444444444444444444444</li>
+        <li>55555555555555555555555555</li>
+        <li>11111111111111111111111111</li>
+
+    </ul>
+</div>
+<script>
+    $(function () {
+        var num =0;
+        var timer = null;
+        timer = setInterval(move,2000)
+        function move() {
+            num+=20;
+            console.log(num);
+            if (num > 100) {
+                $('ul').css('top',0);
+                num =20;
+            }
+            $('ul').animate({
+                top : -num+'px'
+            })
+        }
+//        $('div').hover(function () {
+//            clearInterval(timer);
+//        }, function () {
+//            timer = setInterval(move,2000);
+//        })
+
+        $('div').on({
+            mouseenter : function () {
+                clearInterval(timer);
+            },
+            mouseleave : function () {
+                timer = setInterval(move,2000);
+            }
+        })
+    })
+</script>
+</body>
+</html>

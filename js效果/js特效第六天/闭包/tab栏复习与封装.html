@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            height: 300px;
+            width: 300px;
+            border: 1px solid blue;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        .top {
+            overflow: hidden;
+        }
+        .top span {
+            display: block;
+            float: left;
+            width: 75px;
+            line-height: 50px;
+            border-bottom: 1px solid grey;
+            background-color: pink;
+            text-align: center;
+        }
+        .bottom li{
+            height: 250px;
+            width: 100%;
+            background-color: purple;
+            list-style-type: none;
+            display: none;
+        }
+        .top .current {
+            background-color: purple;
+        }
+        .bottom .show {
+            display: block;
+        }
+    </style>
+    <script>
+        // window.onload = function () {
+        //     var spans = document.getElementById("top1").getElementsByTagName("span");
+        //     var lis = document.getElementById("bottom1").getElementsByTagName("li");
+        //     for (var i = 0; i < spans.length; i++) {
+        //         spans[i].index = i;
+        //         spans[i].onmouseover = function () {
+        //             for (var j = 0; j < spans.length; j++) {
+        //                 spans[j].className = "";
+        //                 lis[j].className= "";
+        //             }
+        //             this.className = "current";
+        //             lis[this.index].className= "show";
+        //         }
+        //     }
+        // }
+        window.onload = function  () {
+            function tab (obj) {
+                var target = document.getElementById(obj);
+                var spans = target.getElementsByTagName("span");
+                var lis =  target.getElementsByTagName("li");
+                for (var i = 0; i < spans.length; i++) {
+                    spans[i].index = i;
+                    spans[i].onmouseover = function  () {
+                        for (var j = 0; j < spans.length; j++) {
+                            spans[j].className = "";
+                            lis[j].className ="";
+                        }
+                            this.className = "current";
+                            lis[this.index].className = "show";
+                    }
+                }
+            }
+            tab("top1");
+            tab("top2");
+            tab("top3");
+        }
+    </script>
+</head>
+<body>
+<div class="box" id="top1">
+    <div class="top">
+        <span class="current">皇马</span>
+        <span>巴萨</span>
+        <span>拜仁</span>
+        <span>尤文</span>
+    </div>
+    <div class="bottom" id="bottom1">
+        <li class="show">皇马新闻</li>
+        <li>巴萨新闻</li>
+        <li>拜仁新闻</li>
+        <li>尤文新闻</li>
+    </div>
+</div>
+<div class="box" id="top2">
+    <div class="top">
+        <span class="current">皇马</span>
+        <span>巴萨</span>
+        <span>拜仁</span>
+        <span>尤文</span>
+    </div>
+    <div class="bottom" id="bottom2">
+        <li class="show">皇马新闻</li>
+        <li>巴萨新闻</li>
+        <li>拜仁新闻</li>
+        <li>尤文新闻</li>
+    </div>
+</div>
+<div class="box" id="top3">
+    <div class="top">
+        <span class="current">皇马</span>
+        <span>巴萨</span>
+        <span>拜仁</span>
+        <span>尤文</span>
+    </div>
+    <div class="bottom" id="bottom3">
+        <li class="show">皇马新闻</li>
+        <li>巴萨新闻</li>
+        <li>拜仁新闻</li>
+        <li>尤文新闻</li>
+    </div>
+</div>
+</body>
+</html>

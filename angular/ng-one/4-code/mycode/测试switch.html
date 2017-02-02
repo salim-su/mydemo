@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试ng-switch</title>
+    <script src='angular.min.js'></script>
+</head>
+<body ng-app='app'>
+<div ng-controller='myCtrl' ng-switch='type'>
+    <div ng-switch-when='ng1'>3</div>
+    <div ng-switch-when='ng2'>4</div>
+    <div ng-switch-when='ng3'>5</div>
+</div>
+
+
+<script>
+    var app = angular.module('app',[]);
+
+    app.controller('myCtrl',['$scope', function ($scope) {
+        $scope.type = 'ng1';
+    }])
+</script>
+</body>
+</html>

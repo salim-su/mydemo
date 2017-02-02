@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双向数据绑定</title>
+    <script src='angular.min.js'></script>
+    <!--要实现数据从视图向模型传递需要借助于表单元素-->
+</head>
+<body ng-app='App'>
+<div ng-controller='DemoController'>
+    <input type="text" ng-model='msg'>
+    <br>
+    <h1 ng-bind='msg'></h1>
+    <button ng-click= "show()">弹出</button>
+    <!--<input type="text">-->
+
+</div>
+<script>
+    var App = angular.module('App',[]);
+
+    App.controller('DemoController',['$scope', function ($scope) {
+
+        $scope.show = function () {
+            alert($scope.msg);
+        }
+
+    }]);
+</script>
+
+</body>
+</html>

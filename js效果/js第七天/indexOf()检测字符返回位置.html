@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>indexOf/lastindexOf</title>
+    <script>
+        window.onload = function () {
+            function $(id){ return document.getElementById(id);}
+            $("btn1").onclick = function () {
+                alert($("txt").value.indexOf($("tex").value));
+            }
+            $("btn2").onclick = function () {
+                alert($("txt").value.lastIndexOf($("tex").value));
+            }
+
+            var txt = "realmadrid";
+//            indexof后边要跟字符串
+//            alert(txt.indexOf("a"));
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="txt"/>
+请输入字符串
+<br/>
+<input type="text" id="tex"/>
+请输入要查找的字符
+<br/>
+<button id="btn1">根据索引值从前往后查找</button>
+<br/>
+<button id="btn2">根据索引值从后往前查找</button>
+</body>
+
+</html>

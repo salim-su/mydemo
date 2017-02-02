@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="animatey.js" type="text/javascript"></script>
+    <script src='../libs/jquery-1.11.1.min.js'></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            vertical-align: top;
+        }
+        #demo {
+            width: 600px;
+            height: 200px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        #demo ul {
+            width: 300%;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #demo ul li {
+            float: left;
+            list-style-type: none;
+        }
+    </style>
+    <script>
+        $(function () {
+            var num =0;
+            setInterval(function () {
+                num++;
+                $('#demo ul').css('left',-num+'px');
+                if (num == 1200) {
+                    num = 0;
+                }
+                console.log(num);
+            },10)
+        })
+//        function getStyle(obj,attr){
+//            return parseFloat(getComputedStyle(obj,null)[attr]);//要用parseFloat
+//        }
+//        window.onload = function () {
+//            function $(id){ return document.getElementById(id);}
+//            var demo = $("demo");
+//            var ul = demo.children[0];
+//            setInterval(start,20);
+//            function start() {
+//                uniformMove(ul,{left : -1200},1, function () {
+//                    ul.style.left = "0px";
+//                });
+//
+//            }
+////            animate(ul,-1200);
+////            function start(obj) {
+////                uniformMove(obj,{left : -1200},1);
+////
+////
+////            }
+//
+//        }
+    </script>
+</head>
+<body>
+<div id="demo">
+    <ul>
+        <li><img src="images/1.jpg" alt=""/></li>
+        <li><img src="images/2.jpg" alt=""/></li>
+        <li><img src="images/3.jpg" alt=""/></li>
+        <li><img src="images/4.jpg" alt=""/></li>
+        <li><img src="images/1.jpg" alt=""/></li>
+        <li><img src="images/2.jpg" alt=""/></li>
+    </ul>
+</div>
+</body>
+</html>

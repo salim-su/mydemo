@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>微博发布</title>
+    <script src='../libs/jquery-1.11.1.min.js'></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 600px;
+            height: auto;
+            border: 1px solid #ccc;
+            padding: 30px 10px;
+            margin: 100px auto;
+        }
+        #area {
+            width: 400px;
+        }
+        #box ul {
+            list-style-type: none;
+        }
+        #box ul li {
+            border-bottom: 1px dashed #008aff;
+            width: 400px;
+            margin-left: 80px;
+            line-height: 30px;
+        }
+        #box ul li a {
+            float: right;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        $(function () {
+            /*ul先创建好，或者直接现在HTML里也行*/
+            var $ul = $('<ul></ul>');
+            $('#box').append($ul);
+            /*点击创建对象*/
+            $('#btn').on('click', function () {
+                /*如果为空返回*/
+                if ($('#area').val() == '') {
+                    alert('输入不能为空');
+                    return;
+                }else {
+                    /*创建对象，然后添加*/
+                    var $val = $('#area').val();
+                    var $li = $('<li></li>');
+                    $li.html($val + "<a href='javascript:;'>删除</a>");
+                    $ul.prepend($li);
+                    $('#area').val('');
+                }
+                /*删除一定要写在点击事件里边，不然程序一运行，放到外边已经执行完毕了，是不会继续执行的*/
+                $("#box ul li a").on('click', function () {
+                $(this).parent().remove();
+
+                })
+            })
+
+
+        })
+    </script>
+</head>
+<body>
+    <div id="box">
+        微博发布:
+        <textarea name="" id="area" cols="50" rows="15"></textarea>
+        <button id="btn">提交</button>
+        <!--<ul>-->
+            <!--<li>111<a href="javascript:;">删除</a></li>-->
+            <!--<li>222<a href="javascript:;">删除</a></li>-->
+            <!--<li>333<a href="javascript:;">删除</a></li>-->
+        <!--</ul>-->
+    </div>
+</body>
+</html>

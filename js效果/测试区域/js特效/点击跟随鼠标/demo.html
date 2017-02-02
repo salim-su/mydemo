@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击鼠标跟随</title>
+    <script src="animate.js" type="text/javascript"></script>
+    <style>
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <img src="img.jpg" alt="cr" id="img">
+    <script>
+        window.onload = function () {
+            var img = document.getElementById("img");
+            document.onclick = function (event) {
+                var event = event || window.event;
+                var xx = parseInt(event.clientX - img.offsetWidth/2);
+                var yy = parseInt(event.clientY - img.offsetHeight/2);
+                animate(img,{left : xx,top : yy});
+
+
+
+
+
+
+
+            }
+        }
+    </script>
+</body>
+</html>

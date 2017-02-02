@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function () {
+            var txt =document.getElementById("txt");
+            var btn = document.getElementById("btn");
+            btn.onclick = function () {
+                var val = txt.value;
+                switch (val) {
+                    case "香蕉":
+                        alert("香蕉的价格为5元/斤");
+                        break;
+                    case "苹果":
+                        alert("苹果的价格为4元/斤");
+                        break;
+                    case "橘子":
+                        alert("橘子的价格为3元/斤");
+                        break;
+                    case "西瓜":
+                        alert("西瓜的价格为2元/斤");
+                        break;
+                    default:
+                        alert("没有此种水果");
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+请输入水果
+<input type="text" id="txt"/>
+<button id="btn">确认</button>
+</body>
+</html>

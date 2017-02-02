@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>传参显示盒子</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css" media="screen">
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 10px;
+            display: none;
+        }
+
+    </style>
+    <script>
+        function fn(obj) {
+            var show =document.getElementById(obj);
+            show.style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <button onclick="fn('demo1')">显示第一个盒子</button>
+    <button onclick="fn('demo2')">显示第二个盒子</button>
+    <button onclick="fn('demo3')">显示第三个盒子</button>
+    <button onclick="fn('demo4')">显示第四个盒子</button>
+    <div id="demo1">一号</div>
+    <div id="demo2">二号</div>
+    <div id="demo3">三号</div>
+    <div id="demo4">四号</div>
+</body>
+</html>

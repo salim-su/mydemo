@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*push*/
+        var arr1 = [1,3,5];
+        //返回新的长度
+        console.log(arr1.push(7,9));
+        //向后添加7,9
+//        arr.push(7,9);
+        console.log(arr1);
+
+        /*unshift*/
+        var arr2 = [1,3,5];
+        //返回新的长度
+        console.log(arr2.unshift(7,9));
+        //向前添加7,9
+        console.log(arr2);
+
+        /*pop*/
+        var arr3 = [1,3,5];
+        //返回最后一个值
+        console.log(arr3.pop());
+        //删除最后一个元素
+        console.log(arr3);
+
+        /*shift*/
+        var arr4 = [1,3,5];
+        /*返回第一个值*/
+        console.log(arr4.shift());
+        /*删除第一个元素*/
+        console.log(arr4);
+
+        /*concat*/
+        var aa = [1,3,5];
+        var bb = ["a","b"];
+        var cc = aa.concat(bb);
+        console.log(cc);
+
+        /*join*/
+        /*把数组转换为字符串*/
+        var txt = ["aa","bb","cc"];
+        console.log(txt.join("-"));
+        console.log(txt); //数组本身不会改变
+
+        /*split*/
+        /*把字符串转为数组*/
+        var aryy = "aa,bb,cc";
+        console.log(aryy.split(","));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

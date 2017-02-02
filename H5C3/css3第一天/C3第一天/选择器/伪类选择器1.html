@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*div下的第二个ul子元素*/
+        /*ul必须跟div下他本身的位置相对应*/
+        /*ul:nth-child(2){*/
+            /*color: deeppink;*/
+        /*}*/
+
+        /*ul:nth-of-type(2){*/
+            /*color: #5CADFF;*/
+        /*}*/
+
+        /*#demo ul:nth-child(2) li:nth-child(3){*/
+            /*color: #5CADFF;*/
+        /*}*/
+        /*#demo ul:nth-child(2) li:last-child{*/
+            /*color: darkred;*/
+        /*}*/
+
+        /*ol:nth-of-type(1){*/
+            /*color: red;*/
+        /*}*/
+        ol:nth-child(3){
+            color: red;
+        }
+        /*#demo ul:nth-child(2) li:nth-child(2n+1){*/
+            /*color: red;*/
+        /*}*/
+        /*#demo ul:nth-child(2) li:nth-last-child(-n+3){*/
+            /*color: red;*/
+        /*}*/
+        /*#demo ul:nth-child(2) li:nth-child(5):after{*/
+            /*color: #5CADFF;*/
+            /*content: "ronadlo";*/
+        /*}*/
+        /*#demo ul:nth-child(2) li:nth-child(5):before{*/
+            /*color: #5CADFF;*/
+            /*content: "bale";*/
+        /*}*/
+        /*#demo ul:nth-child(2) li:nth-child(6)::selection{*/
+            /*background: red;*/
+            /*color: #5CADFF;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div id="demo">
+    <ul>
+        <li>KAKA1</li>
+        <li>KAKA1</li>
+        <li>KAKA1</li>
+    </ul>
+    <ul>
+        <li>KAKA1</li>
+        <li>KAKA2</li>
+        <li>KAKA3</li>
+        <li>KAKA4</li>
+        <li>
+            <li>我是里边的</li>
+        </li>
+        <li>KAKA5</li>
+        <li>KAKA6</li>
+        <li>KAKA7</li>
+        <li>KAKA8</li>
+        <li>KAKA9</li>
+    </ul>
+    <ol>
+        <li>KAKA2</li>
+        <li>KAKA2</li>
+    </ol>
+    <ol>
+        <li>KAKA3</li>
+        <li>KAKA3</li>
+    </ol>
+    <ol>
+        <li>KAKA4</li>
+        <li>KAKA4</li>
+    </ol>
+</div>
+</body>
+</html>

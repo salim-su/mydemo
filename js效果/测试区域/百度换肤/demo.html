@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background:  url(images/1.jpg) 0 0 no-repeat;
+        }
+        #demo{
+            height: 400px;
+            width: 800px;
+            margin:50px auto;
+        }
+        #demo img {
+            width: 150px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function $(id){ return document.getElementById(id);}
+            var demo = $("demo");
+            var pics = demo.children;
+            for (var i = 0; i < pics.length; i++) {
+                pics[i].onclick = function (num) {
+                    return function () {
+                        document.body.style.backgroundImage = "url(images/"+num+".jpg)";
+//                        animate(document,{opacity : 0});
+//                        animate(document,{opacity : 1});
+                    }
+                }(i+1);
+
+            }
+//            function tab(num) {
+//                return function () {
+//                    document.body.style.backgroundImage = "url(images/"+num+".jpg)";
+//                }
+//            }
+
+
+
+
+
+        }
+    </script>
+</head>
+<body>
+<div id="demo">
+    <img src="images/1.jpg" alt="">
+    <img src="images/2.jpg" alt="">
+    <img src="images/3.jpg" alt="">
+    <img src="images/4.jpg" alt="">
+    <img src="images/5.jpg" alt="">
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box = document.getElementById("box");
+            var btn = document.getElementById("btn");
+            var leader = 0;
+            var target = 500;
+            var timer = null;
+            btn.onclick = function () {
+                timer =setInterval(start, 30);
+                function start() {
+                    if (leader >= 500) {
+                        clearInterval(timer);
+                    }else{
+                        leader = leader +(target - leader) / 25;
+                        box.style.left = leader + "px";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<button id="btn">减速运动</button>
+<div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #scroll {
+            position: relative;
+            top: 100px;
+            left: 100px;
+            width: 400px;
+            height: 8px;
+            background-color: #ccc;
+        }
+        #bar {
+            position: absolute;
+            left: 0;
+            top: -5px;
+            height: 20px;
+            width: 10px;
+            background-color: #8694ff;
+            cursor: pointer;
+        }
+        #mask {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ff67a4;
+        }
+        ​.noselect  {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function $(id){ return document.getElementById(id);}
+            var scroll = $("scroll");
+            var bar = $("bar");
+            var mask = $("mask");
+            bar.onmousedown = function (event) {
+                var event = event || window.event;
+                var leftval = event.clientX - this.offsetLeft;
+                var _this = this;
+                document.onmousemove = function (event) {
+                    var event = event || window.event;
+                    var xx = event.clientX - leftval;
+                    if (xx < 0 ) {
+                        xx = 0;
+                    }else if (xx > 390) {
+                        xx =390;
+                    }
+                    _this.style.left = xx + "px";
+                    mask.style.width = _this.style.left;
+                    window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+                }
+                document.onmouseup = function () {
+                    document.onmousemove = null;
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+        }
+    </script>
+</head>
+<body>
+<div id="scroll" class="noselect">
+    <div id="mask"></div>
+    <div id="bar"></div>
+</div>
+</body>
+</html>

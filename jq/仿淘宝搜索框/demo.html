@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src='../libs/jquery-1.11.1.min.js'></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #demo {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin:100px auto;
+        }
+        #txt {
+            height: 25px;
+        }
+        #demo label {
+            position: absolute;
+            left: 20px;
+            top:5px;
+            color: #ccc;
+            cursor: text;
+        }
+    </style>
+    <script>
+        $(function () {
+            $('#txt').focus();
+            $('#txt').on('input', function () {
+//                console.log($(this).val());
+//                alert('11');
+                if ($(this).val() == '') {
+                    $(this).siblings('label').css('display','block');
+                }else{
+                    $(this).siblings('label').css('display','none');
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+<div id="demo">
+    <input type="text" id="txt">
+    <label for="txt">kaka</label>
+</div>
+</body>
+</html>

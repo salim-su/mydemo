@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #demo {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            background:  url(images/clock.jpg) 0 0 no-repeat;
+            margin: 50px auto;
+        }
+        #demo div {
+            width: 100%;
+            height: 100%;
+        }
+        .hour {
+            position: absolute;
+            background:  url(images/hour.png) center center no-repeat;
+        }
+        .minute {
+            position: absolute;
+            background: url(images/minute.png) center center no-repeat;
+        }
+        .second {
+            position: absolute;
+            background: url(images/second.png) center center no-repeat;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            setInterval(clock,1000);
+            function clock() {
+                var date = new Date();
+                var ms = date.getMilliseconds();
+                var s = date.getSeconds()+ ms / 1000;
+                var m = date.getMinutes()+ s / 60;
+                var h = date.getHours() % 12 + m / 60;
+
+                var hour = document.getElementById("hour");
+                var minute = document.getElementById("minute");
+                var second = document.getElementById("second");
+
+                hour.style.WebkitTransform = "rotate("+h*30+"deg)";
+                minute.style.WebkitTransform = "rotate("+m*6+"deg)";
+                second.style.WebkitTransform = "rotate("+s*6+"deg)";
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="demo">
+    <div class="hour" id="hour"></div>
+    <div class="minute" id="minute"></div>
+    <div class="second" id="second"></div>
+</div>
+</body>
+</html>

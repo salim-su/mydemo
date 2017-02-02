@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var btn = document.getElementById("btn");
+            var box = document.getElementById("box");
+            var num = 0;
+            btn.onclick = function () {
+                timer = setInterval(start,20);
+                function start() {
+                    num++;
+                    if (num > 500) {
+                        clearInterval(timer);
+                    }else{
+
+                        box.style.left = num + "px";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<button id="btn">匀速运动</button>
+<div id="box"></div>
+</body>
+</html>

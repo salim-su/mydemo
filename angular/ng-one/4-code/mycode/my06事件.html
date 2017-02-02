@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件绑定</title>
+    <style>
+        ul {
+            list-style-type: none;
+            width: 200px;
+        }
+    </style>
+    <script src='angular.min.js'></script>
+</head>
+<body ng-app='App'>
+<div>
+    <ul ng-controller='DemoController'>
+        <!--单击事件绑定-->
+        <li><button ng-click='single()'>单机</button></li>
+        <!--双击事件绑定-->
+        <li><button ng-dblclick='double()'>双击</button></li>
+        <!--失去焦点-->
+        <input type="text" ng-blur='blur()'>
+        <!--鼠标经过-->
+        <li ng-mouseover="over()">kakakaka</li>
+        <!--鼠标离开-->
+        <li ng-mouseleave="leave()">kakakaka</li>
+    </ul>
+
+
+
+
+</div>
+
+<script>
+    var App = angular.module('App',[]);
+
+    App.controller('DemoController',['$scope', function ($scope) {
+        $scope.single = function () {
+            alert('单击');
+        }
+        $scope.double = function () {
+            alert('双击');
+        }
+        $scope.blur = function () {
+            alert('失去焦点了');
+        }
+        $scope.over = function () {
+            alert('鼠标经过');
+        }
+        $scope.leave = function () {
+            alert('鼠标离开');
+        }
+    }])
+
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function () {
+            function $(id){ return document.getElementById(id);}
+            var btn = $("btn");
+            var count = 8;
+            var timer = null;
+            btn.onclick = function () {
+                this.disabled = true;
+                var _this = this;
+                timer = setInterval(countDown,1000);
+                function countDown() {
+                    count--;
+                    _this.innerHTML = "倒计时还剩下"+count+"秒";
+                    if (count == 0) {
+                        clearInterval(timer);
+                        _this.innerHTML = "点击重新发送短信";
+                        _this.disabled = false;
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="text"/>
+<button id="btn">点击发送短信</button>
+</body>
+</html>

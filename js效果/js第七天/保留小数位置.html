@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var num = 3.1415926;
+        var numStr = String(num);
+        console.log(numStr);
+        console.log(num);
+//        第一种方法保留两位小数点
+        console.log(numStr.substr(0,numStr.indexOf(".")+3));
+//        第二种
+        var numParseInt = parseInt(num*100);
+        console.log(numParseInt / 100);
+//        第三种
+        console.log(num.toFixed(3));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Template • TodoMVC</title>
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" href="css/index.css">
+		<!-- CSS overrides - remove if you don't need it -->
+		<link rel="stylesheet" href="css/app.css">
+		<script src="../libs/angular.min.js"></script>
+	</head>
+	<body ng-app='tudos'>
+		<section class="todoapp" ng-controller='myctrl'>
+			<header class="header">
+				<h1>todos</h1>
+				<form ng-submit='add()'>
+					<input ng-model='inputVal' class="new-todo" placeholder="What needs to be done?" autofocus>
+				</form>
+			</header>
+			<section class="main">
+				<input class="toggle-all" type="checkbox">
+				<label for="toggle-all">Mark all as complete</label>
+				<ul class="todo-list">
+					<li ng-repeat='(key,nodoneval) in tudos'>
+						<div class="view">
+							<input class="toggle"  type="checkbox" ng-checked='nodoneval.flag' ng-click='move(key)'>
+							<label>{{nodoneval.val}}</label>
+							<button class="destroy" ng-click='delete(tudos,key)'></button>
+						</div>
+						<input class="edit" value="Create a TodoMVC template">
+					</li>
+					<li><h5>已完成</h5></li>
+					<li class="completed" ng-repeat='(key,doneval) in donetudos'>
+						<div class="view">
+							<input class="toggle" type="checkbox" ng-checked='doneval.flag'>
+							<label>{{doneval.val}}</label>
+							<button class="destroy" ng-click='delete(donetudos,key)'></button>
+						</div>
+						<input class="edit" value="Rule the web">
+					</li>
+				</ul>
+			</section>
+			<footer class="footer">
+				<span class="todo-count"><strong>{{tudos.length}}</strong> item left</span>
+				<button class="clear-completed">Clear completed</button>
+			</footer>
+		</section>
+
+	</body>
+	<script>
+		var tudos = angular.module('tudos',[]);
+
+		tudos.controller('myctrl',['$scope', function ($scope) {
+			$scope.tudos = [];
+
+			$scope.add = function () {
+				$scope.tudos.push({val : $scope.inputVal, flag : false});
+
+				$scope.inputVal = '';
+            }
+
+
+            $scope.donetudos = [];
+            $scope.move = function (key) {
+				var arr = $scope.tudos.splice(key,1)[0];
+				arr.flag = true;
+//                console.log(arr);
+				$scope.donetudos.push(arr);
+            }
+
+            $scope.delete = function (value,key) {
+//                alert(1)
+				value.splice(key,1);
+            }
+        }])
+	</script>
+
+</html>

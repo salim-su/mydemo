@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$http重要</title>
+    <script src='./libs/angular.min.js'></script>
+    
+</head>
+<body ng-app='demo'>
+<div ng-controller='myctrl'>
+
+
+</div>
+
+
+<script>
+    var demo = angular.module('demo', []);
+
+    demo.controller('myctrl', ['$scope','$http', function ($scope,$http) {
+        /*本质是对XHR的封装*/
+        $http(function () {
+
+
+
+
+
+        })
+
+    }])
+    
+
+
+</script>
+</body>
+</html>

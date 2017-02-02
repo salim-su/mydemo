@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src='angular.min.js'></script>
+</head>
+<body ng-app='App'>
+
+<div ng-controller='DemoController' ng-init="name = 'kaka'">  <!--ng-init初始化，知道就行了-->
+    <h1>{{name}}{{age}}</h1>
+</div>
+
+
+<script>
+
+    var App = angular.module('App',[]);
+
+    App.controller('DemoController',['$scope', function ($scope) {
+        $scope.name = 'kaka';
+        $scope.age = '18';
+
+    }])
+</script>
+</body>
+</html>

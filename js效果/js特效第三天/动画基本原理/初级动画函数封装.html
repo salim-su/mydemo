@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #demo {
+            position: absolute;
+            left: 0;
+            top: 50px;
+            background-color: pink;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function $(id){ return document.getElementById(id);}
+            $("btn1").onclick = function () {
+                animate($("demo"),400);
+            }
+            $("btn2").onclick = function () {
+                animate($("demo"),600);
+            }
+            function animate(obj, target) {
+                obj.timer = setInterval(function () {
+                    if (obj.offsetLeft > target) {
+                        clearInterval(obj.timer);
+                    }
+                    obj.style.left = obj.offsetLeft + 10 +"px";
+                },30)
+            }
+        }
+    </script>
+</head>
+<body>
+<button id="btn1">200px</button>
+<button id="btn2">400px</button>
+<div id="demo"></div>
+</body>
+</html>

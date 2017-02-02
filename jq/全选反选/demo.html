@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src='../jquery-1.11.1.min.js'></script>
+    <script>
+
+        $(function () {
+//
+            $('#btn1').on('click', function () {
+                $('#bottom ul li input').prop('checked',true);
+            })
+            $('#btn2').on('click', function () {
+                $('#bottom ul li input').prop('checked',false);
+            })
+            $('#btn3').on('click', function () {
+//                console.log($('#bottom ul li input:checked').prop("checked"))
+                $('#bottom ul li input').each(function () {
+                    $(this).prop('checked',!$(this).prop("checked"));
+                })
+
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="top">
+        <button id="btn1">全选</button>
+        <button id="btn2">取消</button>
+        <button id="btn3">反选</button>
+    </div>
+    <div id="bottom">
+        <ul>
+            <li><input type="checkbox" id="aa">1</li>
+            <li><input type="checkbox">2</li>
+            <li><input type="checkbox">3</li>
+            <li><input type="checkbox">4</li>
+            <li><input type="checkbox">5</li>
+            <li><input type="checkbox">6</li>
+            <li><input type="checkbox">7</li>
+            <li><input type="checkbox">8</li>
+            <li><input type="checkbox">9</li>
+            <li><input type="checkbox">10</li>
+        </ul>
+    </div>
+</body>
+</html>
